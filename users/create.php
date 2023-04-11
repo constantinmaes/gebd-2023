@@ -20,7 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = strip_tags($_POST['email']);
     $password = strip_tags($_POST['password']);
     
-    $q = $db->prepare('INSERT INTO users (firstName) VALUES (:firstName);');
+    $q = $db->prepare('INSERT INTO users (firstName, lastName, email, password) VALUES (:firstName, :lastName, :email, :password);');
     $q->bindParam(':firstName', $firstName);
+    $q->bindParam(':lastName', $lastName);
+    $q->bindParam(':email', $email);
+    $q->bindParam(':password', $password);
     $q->execute();
 }
