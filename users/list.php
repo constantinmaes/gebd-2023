@@ -5,7 +5,7 @@ $q->execute();
 $result = $q->fetchAll(PDO::FETCH_ASSOC);
 
 $html = '';
-$html .= '<table>';
+$html .= '<table class="table">';
 $html .= '<thead>';
 $html .= '<tr>';
 $html .= '<th>Id</th>';
