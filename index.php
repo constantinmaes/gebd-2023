@@ -23,7 +23,6 @@ $resource = $cleanedArray[0];
 // users/1/edit => formulaire d'édition de l'utilisateur avec l'id 1
 
 if ($cleanedArray[1] === NULL || $cleanedArray[1] === "") {
-    echo 'Liste de la ressource '.$resource;
     require_once('./'.$resource.'/list.php');
     return;
 }
