@@ -17,24 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     } else {
         echo 'Pas d\'utilisateur avec cet id';
     }
-
-
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Enregistre les données du formulaire
+    // Supprime la ligne dans la table users
     // dans la base de données
-    $firstName = strip_tags($_POST['firstName']);
-    $lastName = strip_tags($_POST['lastName']);
-    $email = strip_tags($_POST['email']);
-    $password = strip_tags($_POST['password']);
-    
-    $q = $db->prepare('UPDATE users SET firstName=:firstName, lastName=:lastName, email=:email, password=:password WHERE id=:id;');
-    $q->bindParam(':firstName', $firstName);
-    $q->bindParam(':lastName', $lastName);
-    $q->bindParam(':email', $email);
-    $q->bindParam(':password', $password);
+   
+    $q = $db->prepare('DELETE FROM users WHERE id=:id');
     $q->bindParam(':id', $parameter);
     $q->execute();
 
